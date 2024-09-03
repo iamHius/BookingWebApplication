@@ -1,4 +1,5 @@
 ﻿using HotelBookings.Areas.Identity.Data;
+using HotelBookings.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,12 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
-
+    public DbSet<Room> Rooms { get; set; }
+    public DbSet<Booking> Bookings { get; set; }
+    public DbSet<Capacity> Capacity { get; set; }
+    public DbSet<BookingStatus> Status { get; set; }
+    public DbSet<RoomType> RoomTypes { get; set; }
+    public DbSet<ApplicationUser> User { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
